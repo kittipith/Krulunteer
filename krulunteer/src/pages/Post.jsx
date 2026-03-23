@@ -12,7 +12,7 @@ function Post(){
     return(
         <>
             <Header />
-            <div className="bg-gray-100 flex flex-col items-center w-full min-h-screen">
+            <div className="bg-gray-100 flex flex-col items-center w-full p-20">
                 <div className="w-full max-w-3xl bg-white m-10 p-8 rounded-xl shadow">
                     <h1 className="text-3xl font-semibold text-center">Post a need</h1>
                     <p className="text-center text-gray-500">ประกาศหาครูให้โรงเรียนของท่านได้เลยที่นี่</p>
