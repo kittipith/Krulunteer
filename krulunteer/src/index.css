@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+    --font-playfair: 'Playfair', serif;
+    --font-roboto-mono: 'RobotoMono', sans-serif;
+}
+
+@font-face{
+    font-family: 'Playfair';
+    src: url('./fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'RobotoMono';
+    src: url('./fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+}
