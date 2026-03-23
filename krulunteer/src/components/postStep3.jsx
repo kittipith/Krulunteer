@@ -40,8 +40,8 @@ export default function Step3() {
     const [benefits, setBenefits] = useState([
         { title: "Free Housing", desc: "มีบ้านพักให้", icon: IoHomeOutline },
         { title: "Free WiFi", desc: "มีอินเตอร์เน็ตให้", icon: FaWifi },
-        { title: "Transport", desc: "มีบริการรถรับส่ง", icon: FaBus },
-        { title: "Meals", desc: "มีอาหารกลางวันให้", icon: GiMeal },
+        { title: "Transportation Provided", desc: "มีบริการรถรับส่ง", icon: FaBus },
+        { title: "Free Meals", desc: "มีอาหารกลางวันให้", icon: GiMeal },
         { title: "Free water and electricity", desc: "ฟรีค่าน้ำ/ค่าไฟ", icon: LiaFileInvoiceDollarSolid }
     ]);
 
@@ -166,9 +166,9 @@ export default function Step3() {
                             <button
                                 key={index}
                                 onClick={() => {handleSelectBenefit(index)}}
-                                className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all active:scale-95 bg-white text-gray-700 hover:bg-gray-200}`}>
+                                className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all active:scale-95 ${isActive ? "bg-green-50 border-green-600" : "bg-white hover:bg-gray-100"}`}>
                                 <div className="flex items-center gap-2">
-                                    <div className="p-2 bg-gray-100 rounded-lg">
+                                    <div className="p-2 bg-[#EEF0EA] rounded-lg">
                                         {benefit.icon && <benefit.icon size={18} />}
                                     </div>
 
@@ -183,9 +183,17 @@ export default function Step3() {
                         );
                     })}
                     <div onClick={() => setIsAdding(!isAdding)}
-                        className={`flex items-center justify-center gap-2 p-3 border rounded-xl cursor-pointer transition ${isAdding ? "bg-green-50 border-green-600": "bg-white hover:bg-gray-50" }`}>
-                        <FaPlus size={16} />
-                        <span>more</span>
+                        className={`items-start flex gap-2 p-3 border rounded-xl cursor-pointer transition ${isAdding ? "bg-green-50 border-green-600": "bg-white hover:bg-gray-100" }`}>
+                        <div className="flex gap-2">
+                            <div className="p-2 bg-[#EEF0EA] rounded-lg">
+                                <FaPlus size={16} />
+                            </div>
+
+                            <div className="inline-flex flex-col items-start">
+                                <p className="text-sm font-medium">More</p>
+                                <p className="text-xs text-gray-500">เพิ่มสวัสดิการอื่นๆ</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
