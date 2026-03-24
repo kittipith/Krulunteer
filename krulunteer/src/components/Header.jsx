@@ -9,7 +9,7 @@ function Header(){
         <header className='fixed top-0 left-0 w-full bg-white flex justify-between items-center shadow-[0_2px_4px_rgba(0,0,0,0.3)]'>
             <div className='grid grid-cols-2 h-[5rem] w-[80%] mx-auto'>
                 <div className='flex items-center justify-start gap-5'>
-                    <img src={logo} alt="Logo" className='w-[3rem] h-[3rem]' />
+                    <img src={logo} alt="logo" className='w-[3rem] h-[3rem]' />
                     <p className='text-[#368C64] text-[2rem] font-playfair font-semibold'>Krulunteer</p>
                 </div>
                 <div className='flex items-center justify-end gap-5'>
