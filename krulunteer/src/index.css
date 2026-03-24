@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-    --font-playfair: 'Playfair', serif;
-    --font-roboto-mono: 'RobotoMono', sans-serif;
+    --font-playfair: 'Playfair', 'NotoSansThai';
+    --font-roboto-mono: 'RobotoMono', 'NotoSansThai';
+    --font-noto-sans-thai: 'NotoSansThai', sans-serif;
 }
 
 @font-face{
@@ -13,4 +14,9 @@
 @font-face{
     font-family: 'RobotoMono';
     src: url('./fonts/RobotoMono-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'NotoSansThai';
+    src: url('./fonts/NotoSansThai-VariableFont_wdth\,wght.ttf') format('truetype');
 }

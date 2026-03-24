@@ -9,7 +9,7 @@ export default function Step2() {
             newSet.delete(subject);
         } else {
             newSet.add(subject);
-        }   
+        }
         setSubject(newSet);
     }
     
@@ -33,7 +33,6 @@ export default function Step2() {
                         <button key={subject} value={subject} onClick={() => handleSubjectChange(subject)}
                             className={`px-3 py-2 border rounded-lg transition-all duration-150 active:scale-90 ${isActive ? "bg-[#368C64] text-white" : "bg-white text-gray-700 hover:bg-gray-200"}`}>
                                 {subject}
-
                         </button>
                     );
                 })}
