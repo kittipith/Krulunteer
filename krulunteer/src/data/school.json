@@ -1,0 +1,106 @@
+[
+  {
+    "ID": 1,
+    "Name": "โรงเรียนอุ้มผางวิทยาคม",
+    "Province": "Tak",
+    "District": "Umphang",
+    "MapUrl": "https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AD%E0%B8%B8%E0%B9%89%E0%B8%A1%E0%B8%9C%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%84%E0%B8%A1/@16.0318247,98.8561382,17z/data=!3m1!4b1!4m6!3m5!1s0x30e741b7df96be9b:0x6a49f809541c2849!8m2!3d16.0318247!4d98.8587131!16s%2Fg%2F1vxfxm6b?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
+    "Lat": 16.0318247,
+    "Lon": 98.8587131,
+    "Images": [
+        "/krulunteer/src/assets/umpang1.jpg",
+        "/krulunteer/src/assets/umpang2.jpg"
+    ],
+    "Budget": 10000,
+    "NoSalary": false,
+    "Subject": ["Math", "English"],
+    "Duration": "1 ปี",
+    "Environment": {
+        "Internet": 3,
+        "Transport": 1,
+        "Electric": 4,
+        "Residence": 4,
+        "Water": 4
+    },
+    "Welfare": ["Housing", "Transport", "Water&Electric", "Food"]
+  },
+  {
+    "ID": 2,
+    "Name": "โรงเรียนบ้านนุเซะโปล้",
+    "Province": "Tak",
+    "District": "Umphang",
+    "MapUrl": "https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B8%B8%E0%B9%80%E0%B8%8B%E0%B8%B0%E0%B9%82%E0%B8%9B%E0%B8%A5%E0%B9%89/@16.0044833,98.609827,13z/data=!4m10!1m2!2m1!1z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ!3m6!1s0x30e711b8a3c2f847:0x774aa0258a22cd62!8m2!3d16.0044604!4d98.6687464!15sChjguYLguKPguIfguYDguKPguLXguKLguJmSARhnZW5lcmFsX2VkdWNhdGlvbl9zY2hvb2zgAQA!16s%2Fg%2F1pzt2d_51?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
+    "Lat": 16.0044833,
+    "Lon": 98.609827,
+    "Images": [
+        "/krulunteer/src/assets/nuseplo1.jpg",
+        "/krulunteer/src/assets/nuseplo2.jpg"
+    ],
+    "Budget": 0,
+    "NoSalary": true,
+    "Subject": ["Math"],
+    "Duration": "3 สัปดาห์",
+    "Environment": {
+        "Internet": 2,
+        "Transport": 1,
+        "Electric": 3,
+        "Residence": 4,
+        "Water": 4
+    },
+    "Welfare": ["Housing", "Transport", "Water&Electric", "Food"]
+  },
+  {
+    "ID": 3,
+    "Name": "โรงเรียนบ้านแม่กลองน้อย",
+    "Province": "Tak",
+    "District": "Umphang",
+    "MapUrl": "https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%81%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A2/@16.3486665,99.0082499,17z?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
+    "Lat": 16.3486665,
+    "Lon": 99.0082499,
+    "Images": [
+            "/krulunteer/src/assets/meaklongnoi1.jpg",
+            "/krulunteer/src/assets/meaklongnoi2.jpg",
+            "/krulunteer/src/assets/meaklongnoi3.jpg"
+    ],
+    "Budget": 5000,
+    "NoSalary": false,
+    "Subject": ["Math", "Science"],
+    "Duration": "6 เดือน",
+    "Environment": {
+        "Internet": 4,
+        "Transport": 2,
+        "Electric": 4,
+        "Residence": 5,
+        "Water": 5
+    },
+    "Welfare": ["Housing", "Transport", "Water&Electric", "Food"]
+  },
+  {
+    "ID": 4,
+    "Name": "โรงเรียนตำรวจตระเวนชายแดนบำรุงที่ 112",
+    "Province": "Chang Rai",
+    "District": "Mea Fa Luang",
+    "MapUrl": "https://www.google.com/maps/place/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B8%B3%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%95%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%8A%E0%B8%B2%E0%B8%A2%E0%B9%81%E0%B8%94%E0%B8%99%E0%B8%9A%E0%B8%B3%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88+112/@20.2681784,99.519232,13z/data=!4m10!1m2!2m1!1z4LmC4Lij4LiH4LmA4Lij4Li14Lii4LiZ4LiK4Liy4Lii4LmB4LiU4LiZIOC5gOC4iuC4teC4ouC4h-C4o-C4suC4og!3m6!1s0x30d6c29f9784afb1:0x51963d5ded4cc34e!8m2!3d20.285221!4d99.5423812!15sCkPguYLguKPguIfguYDguKPguLXguKLguJnguIrguLLguKLguYHguJTguJkg4LmA4LiK4Li14Lii4LiH4Lij4Liy4LiiWkYiROC5guC4o-C4h-C5gOC4o-C4teC4ouC4mSDguIrguLLguKLguYHguJTguJkg4LmA4LiK4Li14Lii4LiH4Lij4Liy4LiikgEXZWR1Y2F0aW9uYWxfaW5zdGl0dXRpb26aASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUk1jRFptVW1aM0VBReABAPoBBQjRARA-!16s%2Fg%2F11b69bqn_g?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
+    "Lat": 20.2681784,
+    "Lon": 99.519232,
+    "Images": [
+            "/krulunteer/src/assets/BPPbamrung112_1.jpg",
+            "/krulunteer/src/assets/BPPbamrung112_2.jpg"
+    ],
+    "Budget": 8000,
+    "NoSalary": false,
+    "Subject": ["English"],
+    "Duration": "6 เดือน",
+    "Environment": {
+        "Internet": 4,
+        "Transport": 2,
+        "Electric": 4,
+        "Residence": 5,
+        "Water": 5
+    },
+    "Welfare": ["Housing", "Transport", "Water&Electric", "Food"]
+  }
+
+    
+
+]
