@@ -108,9 +108,9 @@ export default function Step3({ formData, setFormData }) {
 
     return (
         <div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label>สัญญาณอินเตอร์เน็ต</label>
+                    <label className="text-sm font-medium text-gray-700">สัญญาณอินเตอร์เน็ต</label>
                     <div className="flex flex-wrap gap-4">
                         {internets.map((internet) => {
                             const isActive = selectedInternet === internet;
@@ -127,7 +127,7 @@ export default function Step3({ formData, setFormData }) {
                 </div>
                 
                 <div>
-                    <label>รถสาธารณะ</label>
+                    <label className="text-sm font-medium text-gray-700">รถสาธารณะ</label>
                     <div className="flex flex-wrap gap-4">
                         {transports.map((transport) => {
                             const isActive = selectedTransport === transport;
@@ -143,7 +143,7 @@ export default function Step3({ formData, setFormData }) {
                 </div>
 
                 <div>
-                    <label>ไฟฟ้า</label>
+                    <label className="text-sm font-medium text-gray-700">ไฟฟ้า</label>
                     <div className="flex flex-wrap gap-4">
                         {electrics.map((electric) => {
                             const isActive = selectedElectric === electric;
@@ -158,7 +158,7 @@ export default function Step3({ formData, setFormData }) {
                 </div>
 
                 <div>
-                    <label>ที่อยู่อาศัย</label>
+                    <label className="text-sm font-medium text-gray-700">ที่อยู่อาศัย</label>
                     <div className="flex flex-wrap gap-4">
                         {housings.map((housing) => {
                             const isActive = selectedHousing === housing;
@@ -174,7 +174,7 @@ export default function Step3({ formData, setFormData }) {
                 </div>
 
                 <div>
-                    <label>น้ำประปา</label>
+                    <label className="text-sm font-medium text-gray-700">น้ำประปา</label>
                     <div className="flex flex-wrap gap-4">
                         {waters.map((water) => {
                             const isActive = selectedWater === water;
@@ -192,15 +192,15 @@ export default function Step3({ formData, setFormData }) {
                  
             </div>
             <div className="mt-2">
-                <label>สวัสดิการของโรงเรียน</label>
-                <div className="grid grid-cols-2 gap-3 mt-1">
+                <label className="text-sm font-medium text-gray-700">สวัสดิการของโรงเรียน</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                     {benefits.map((benefit, index) => {
                         const isActive = selectedBenefit.has(index);
                         return (
                             <button
                                 key={index}
                                 onClick={() => {handleSelectBenefit(index)}}
-                                className={`flex items-center justify-between p-3 border border-gray-300  rounded-md shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all ${isActive ? "bg-green-50 border-green-600" : "bg-white hover:bg-gray-100"}`}>
+                                className={`flex items-center justify-between p-3 border border-gray-200 rounded-xl shadow-sm transition ${isActive ? "bg-green-50 border-[#2F855A]" : "bg-white hover:bg-gray-50"}`} >
                                 <div className="flex items-center gap-2">
                                     <div className="p-2 bg-[#EEF0EA] rounded-lg">
                                         {benefit.icon && <benefit.icon size={18} />}
@@ -212,7 +212,7 @@ export default function Step3({ formData, setFormData }) {
                                     </div>
                                 </div>
                                 <div className={`w-4 h-4 border rounded
-                                    ${isActive ? "bg-[#368C64] border-[#368C64]" : ""}`}/>
+                                    ${isActive ? "bg-[#2F855A] border-[#2F855A]" : "border-gray-300"}`}/>
                             </button>
                         );
                     })}
@@ -234,14 +234,14 @@ export default function Step3({ formData, setFormData }) {
                 {isAdding && (
                     <div className="flex gap-2 mt-4">
                         <input value={newBenefit} onChange={(e) => setNewBenefit(e.target.value)} placeholder="เพิ่มสวัสดิการอื่นๆ"
-                            className="flex-1 border p-2 rounded-lg"
+                            className="flex-1 border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-green-200 focus:border-[#2F855A]"
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") handleAddBenefit();
                             }}
                         />
                         <button
                             onClick={handleAddBenefit}
-                            className="px-4 py-2 bg-[#368C64] text-white rounded-lg hover:bg-[#2E6B52]">
+                            className="px-4 py-2 bg-[#2F855A] text-white rounded-lg hover:bg-[#276749] shadow-md">
                             Add
                         </button>
                     </div>

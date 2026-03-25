@@ -37,18 +37,18 @@ export default function Step1({ formData, setFormData }) {
             <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                     <label>จังหวัด</label>
-                    <input id="province" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all" 
+                    <input id="province" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400" 
                     placeholder="จังหวัด" value={formData.province} onChange={handleChange}/>
                 </div>
                 <div className="flex flex-col gap-1.5">
                     <label>อำเภอ</label>
-                    <input id="district" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all" 
+                    <input id="district" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400" 
                     placeholder="อำเภอ" value={formData.district} onChange={handleChange}/>
                 </div>      
             </div>
             <div className="flex flex-col gap-1.5"> 
                 <label>Location</label>
-                <input id="location" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all"
+                <input id="location" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400"
                 placeholder="วางลิงก์พิกัดโรงเรียน" value={formData.location} onChange={handleChange}/>
             </div>
 

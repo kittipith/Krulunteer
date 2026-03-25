@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Header(){
     return(
-        <header className='fixed top-0 left-0 w-full bg-white flex justify-between items-center shadow-[0_2px_4px_rgba(0,0,0,0.3)]'>
+        <header className='fixed top-0 left-0 w-full bg-white flex justify-between items-center shadow-[0_2px_4px_rgba(0,0,0,0.3)] z-50'>
             <div className='grid grid-cols-2 h-[5rem] w-[80%] mx-auto'>
                 <div className='flex items-center justify-start gap-5'>
                     <img src={logo} alt="logo" className='w-[3rem] h-[3rem]' />
