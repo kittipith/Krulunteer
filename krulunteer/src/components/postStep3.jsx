@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FaWifi } from "react-icons/fa6";
 import { IoHomeOutline } from "react-icons/io5";
-import { FaBus } from "react-icons/fa";
+import { BsBusFront } from "react-icons/bs";
+import { FaWifi } from "react-icons/fa";
+import { RiBillLine } from "react-icons/ri";
 import { GiMeal } from "react-icons/gi";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { FaPlus } from "react-icons/fa";
 import { FaRegSmileWink } from "react-icons/fa";
 export default function Step3({ formData, setFormData }) {
@@ -64,9 +64,9 @@ export default function Step3({ formData, setFormData }) {
     const [benefits, setBenefits] = useState([
         { title: "Free Housing", desc: "มีบ้านพักให้", icon: IoHomeOutline },
         { title: "Free WiFi", desc: "มีอินเตอร์เน็ตให้", icon: FaWifi },
-        { title: "Transportation Provided", desc: "มีบริการรถรับส่ง", icon: FaBus },
+        { title: "Transportation Provided", desc: "มีบริการรถรับส่ง", icon: BsBusFront },
         { title: "Free Meals", desc: "มีอาหารกลางวันให้", icon: GiMeal },
-        { title: "Free water and electricity", desc: "ฟรีค่าน้ำ/ค่าไฟ", icon: LiaFileInvoiceDollarSolid }
+        { title: "Free water and electricity", desc: "ฟรีค่าน้ำ/ค่าไฟ", icon: RiBillLine }
     ]);
 
     const [newBenefit, setNewBenefit] = useState("");
