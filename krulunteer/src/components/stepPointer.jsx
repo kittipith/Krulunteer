@@ -10,7 +10,7 @@ export default function stepPointer({step}) {
     );
 
     return (
-        <div className="flex justify-center gap-6 mt-4 text-[#476A47]">
+        <div className="flex justify-center gap-6 mt-4 text-[#476A47] font-noto-sans-thai">
             <Item number={1} label="ข้อมูลโรงเรียน" />
             <Item number={2} label="สิ่งที่ต้องการ" />
             <Item number={3} label="สภาพแวดล้อม" />

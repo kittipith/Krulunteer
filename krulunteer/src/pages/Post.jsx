@@ -98,14 +98,14 @@ function Post(){
             <div className="bg-[#F9F9F9] flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-10 md:py-16 mt-10">
                 
                 <div className="w-full max-w-3xl bg-white/90 backdrop-blur-sm my-6 md:my-10 p-5 sm:p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100">
-                    <h1 className="text-2xl sm:text-3xl font-semibold text-center">Post a need</h1>
-                    <p className="text-center text-gray-500 text-sm sm:text-base">ประกาศหาครูให้โรงเรียนของท่านได้เลยที่นี่</p>
+                    <h1 className="text-2xl sm:text-3xl font-semibold text-center font-playfair">Post a need</h1>
+                    <p className="text-center text-gray-500 text-sm sm:text-base font-noto-sans-thai">ประกาศหาครูให้โรงเรียนของท่านได้เลยที่นี่</p>
                     <div className='mt-4 sm:mt-6'>
                         <StepPointer step={step} />
                     </div>
                    
 
-                    <div className="mt-4 sm:mt-6">
+                    <div className="mt-4 sm:mt-6 ">
                         {step === 1 && <PostStep1 formData={formData} setFormData={setFormData} />}
                         {step === 2 && <PostStep2 formData={formData} setFormData={setFormData} />}
                         {step === 3 && <PostStep3 formData={formData} setFormData={setFormData} />}
@@ -115,7 +115,7 @@ function Post(){
                         <button 
                             onClick={() => setStep(step - 1)} 
                             disabled={step === 1} 
-                            className="px-4 py-2 border rounded-lg disabled:opacity-40 hover:bg-gray-200">
+                            className="px-4 py-2 border rounded-lg disabled:opacity-40 hover:bg-gray-200 font-playfair">
                             &lt; Back
                         </button>
 
@@ -130,7 +130,7 @@ function Post(){
                                     setStep(step + 1);
                                 }
                             }} 
-                            className="px-4 py-2 bg-[#368C64] text-white rounded-lg hover:bg-[#2E6B52]">
+                            className="px-4 py-2 bg-[#368C64] text-white rounded-lg hover:bg-[#2E6B52] font-playfair">
                             {step === 3 ? "Submit" : "Next >"}
                         </button>
                     </div>

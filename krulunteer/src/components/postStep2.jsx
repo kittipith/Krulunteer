@@ -26,7 +26,7 @@ export default function Step2({ formData, setFormData }) {
 
     
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 font-noto-sans-thai">
             <div>
                 <label>ค่าตอบแทน</label>
                 <input type="number" id="salary" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all" 

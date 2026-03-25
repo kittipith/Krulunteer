@@ -108,7 +108,7 @@ export default function Step3({ formData, setFormData }) {
 
     return (
         <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-noto-sans-thai">
                 <div>
                     <label className="text-sm font-medium text-gray-700">สัญญาณอินเตอร์เน็ต</label>
                     <div className="flex flex-wrap gap-4">
@@ -191,7 +191,7 @@ export default function Step3({ formData, setFormData }) {
                 
                  
             </div>
-            <div className="mt-2">
+            <div className="mt-2 font-noto-sans-thai">
                 <label className="text-sm font-medium text-gray-700">สวัสดิการของโรงเรียน</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                     {benefits.map((benefit, index) => {
@@ -202,7 +202,7 @@ export default function Step3({ formData, setFormData }) {
                                 onClick={() => {handleSelectBenefit(index)}}
                                 className={`flex items-center justify-between p-3 border border-gray-200 rounded-xl shadow-sm transition ${isActive ? "bg-green-50 border-[#2F855A]" : "bg-white hover:bg-gray-50"}`} >
                                 <div className="flex items-center gap-2">
-                                    <div className="p-2 bg-[#EEF0EA] rounded-lg">
+                                    <div className="p-2 bg-[#EEF0EA] rounded-lg ">
                                         {benefit.icon && <benefit.icon size={18} />}
                                     </div>
 
