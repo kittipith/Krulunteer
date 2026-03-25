@@ -1,6 +1,7 @@
 import '../index.css'
 import Header from '../components/Header'
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { IoIosSearch } from "react-icons/io";
 import { FaFilter } from "react-icons/fa";
@@ -107,7 +108,7 @@ function Find(){
                     </div>
                 )}
                 <div className='grid grid-cols-3 gap-10 w-full mt-5'>
-                    <div className='flex flex-col px-5 py-2 border border-gray-300 rounded-2xl bg-white gap-2'>
+                    <div className='flex flex-col px-5 py-2 border border-gray-300 rounded-2xl bg-white gap-2 shadow-sm hover:shadow-md hover:-translate-y-1 transform transition duration-300'>
                         <h2 className='font-playfair font-medium text-[1.5rem]'>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h2>
                         <div className='flex items-center font-noto-sans-thai'>
                             <IoLocationOutline />
@@ -122,10 +123,12 @@ function Find(){
                             <span className='text-[#595959] bg-[#E7E7E7] px-3 py-1 rounded-lg'>ภาษาอังกฤษ</span>
                         </div>
                         <div className='flex justify-between mt-3 font-noto-sans-thai'>
-                            <div className='flex items-center justify-center text-[#368C64]'>
-                                <span className='text-[1.3rem]'>รายละเอียด</span>
-                                <MdNavigateNext size={30} />
-                            </div>
+                            <Link to="/detail">
+                                <div className='flex items-center justify-center text-[#368C64] cursor-pointer'>
+                                    <span className='text-[1.3rem]'>รายละเอียด</span>
+                                    <MdNavigateNext size={30} />
+                                </div>
+                            </Link>
                             <span className='bg-[#FF0000] font-medium text-white text-[1.2rem] px-4 py-1 rounded-2xl'>เร่งด่วน</span>
                         </div>
                     </div>
