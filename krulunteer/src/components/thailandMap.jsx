@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, GeoJSON, Tooltip, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import thailand from "../data/thailandData.json";
-import schoolDatas from "../data/schoolData.json";
 import React, { useEffect, useState } from "react";
 import schools from "../data/School.json";
 
