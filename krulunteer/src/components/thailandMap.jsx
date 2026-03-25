@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import thailand from "../data/thailandData.json";
 import schoolDatas from "../data/schoolData.json";
 import React, { useEffect, useState } from "react";
+import schools from "../data/School.json";
 
 function MapFixer() {
     const map = useMap();
@@ -18,13 +19,22 @@ export default function ThailandMap() {
         setIsReady(true);
     }, []);
 
-    const schoolData = schoolDatas;
+    const schoolData = schools.reduce((acc, school) => {
+        const province = school.Province?.trim();
+
+        if (!province) return acc;
+
+        acc[province] = (acc[province] || 0) + 1;
+        return acc;
+    }, {});
+
+
     const getColor = (count) => {
-    if (count > 10) return "#166534";
-    if (count > 5) return "#16a34a";
-    if (count > 0) return "#4ade80";
-    return "#ffffff"; 
-  };
+        if (count > 4) return "#166534";
+        if (count > 2) return "#16a34a";
+        if (count > 0) return "#4ade80";
+        return "#ffffff"; 
+    };
 
     const getProvinceColor = (feature) => {
         const name = feature.properties.NAME_1 || feature.properties.name; 
@@ -37,6 +47,8 @@ export default function ThailandMap() {
             fillOpacity: 0.7,
         };
     };
+
+    
 
     const onEachFeature = (feature, layer) => {
         const name = feature.properties.NAME_1 || feature.properties.name;
