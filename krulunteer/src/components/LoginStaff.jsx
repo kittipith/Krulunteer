@@ -13,7 +13,7 @@ function LoginStaff(){
                     <LuSchool size={50} color="#FED66A" />
                 </div>
             </div>
-            <h1 className="font-playfair font-medium text-[2.5rem]">บุคลากรในโรงเรียน</h1>
+            <h1 className="font-playfair font-semibold text-[2.5rem]">บุคลากรในโรงเรียน</h1>
             <p className="text-center text-[#3F3F3F] font-noto-sans-thai text-[1rem]">เข้าสู่ระบบด้วยอีเมลของสถานศึกษา</p>
             <div className="w-[80%] mt-7 mb-5">
                 <label htmlFor="email" className="text-[1.2rem] font-medium font-noto-sans-thai">Email</label>
