@@ -49,11 +49,11 @@ function Home(){
                     </div>
 
                     <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-gray-100">
-                        <h2 className="text-center text-gray-600 mb-2">
+                        <h2 className="text-center text-gray-600 mb-2 font-playfair">
                             School Location
                         </h2>
 
-                        <div className="h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden hover:scale-[1.01] transition duration-300">
+                        <div className="h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden hover:scale-[1.01] transition duration-300 ">
                             <ThailandMap />
                         </div>
                     </div>

@@ -60,7 +60,7 @@ export default function ThailandMap() {
     if (!isReady || !thailand) return null;
 
     return (
-        <div className="w-full h-[600px] rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+        <div className="w-full h-[600px]  overflow-hidden shadow-lg border border-gray-200 ">
             <MapContainer center={[10.7, 100.5]} zoom={5}
                 className="w-full h-full"
                 scrollWheelZoom={false}>
