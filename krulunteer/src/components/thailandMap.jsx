@@ -1,8 +1,8 @@
-import { MapContainer, TileLayer, GeoJSON, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Tooltip, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import thailand from "../data/thailandData.json";
 import schoolDatas from "../data/schoolData.json";
-import React, { use } from "react";
+import React, { useEffect, useState } from "react";
 
 function MapFixer() {
     const map = useMap();
@@ -70,7 +70,4 @@ export default function ThailandMap() {
             </MapContainer>
         </div>
     );
-
-
-
 }
