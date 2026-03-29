@@ -1,0 +1,118 @@
+[
+  {
+  "id":1,
+  "name": "นายกิตติพิชญ์ หิรัญวงศ์",
+  "pic": "https://img.pikbest.com/png-images/qiantu/simple-cute-cartoon-boy-wearing-glasses-character-image-element_2538292.png!sw800",
+  "age": 24,
+  "teach_level": "ครูชำนาญการพิเศษ",
+  "contact": {
+    "phone": "09-9999-9999",
+    "email": "kittipich@gmail.com",
+    "line": "@kittipich"
+  },
+  "volunteerSchoolCount": 2,
+  "teachingYears": 2,
+  "awardsCont": 8,
+  "education": [
+    {
+      "id": 1,
+      "degree": "ปริญญาตรี สาขาเทคโนโลยีสารสนเทศ",
+      "school": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลชาดกระบัง",
+      "period": "2562 - 2566"
+    },
+    {
+      "id": 2,
+      "degree": "ปริญญาโท สาขาเทคโนโลยีสารสนเทศ",
+      "school": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลชาดกระบัง",
+      "period": "2566"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "อบรมจิตอาสาครูอาสา",
+      "location": "จ.เชียงใหม่",
+      "level": "ป.1 - ม.3",
+      "period": "ม.ค. - ธ.ค. 2566"
+    },
+    {
+      "id": 2,
+      "title": "โรงเรียนชุมชนบวรรังษี",
+      "location": "จ.สมุทรปราการ",
+      "level": "ป.1 - ม.3",
+      "period": "ม.ค. - ธ.ค. 2566"
+    },
+    {
+      "id": 3,
+      "title": "โรงเรียนวัดบางปิ้ง",
+      "location": "จ.สมุทรปราการ",
+      "level": "ป.1 - ม.3",
+      "period": "ม.ค. - ธ.ค. 2566"
+    }
+  ],
+  "teachableSubjects": [
+    "คณิตศาสตร์",
+    "วิทยาศาสตร์",
+    "ภาษาอังกฤษ"
+  ]
+
+},
+{
+  "id": 2,
+  "name": "นายพงศกร ศรีเจริญ",
+  "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJlk4BcnWpx720EfLDhpBc16yaAvQcPf4Kg&s",
+  "age": 24,
+  "teach_level": "ครูชำนาญการ",
+  "contact": {
+    "phone": "09-9999-9999",
+    "email": "pongsakon@gmail.com",
+    "line": "@pongsakon"
+  },
+  "volunteerSchoolCount": 2,
+  "teachingYears": 2,
+  "awardsCont": 8,
+  "education": [
+    {
+      "id": 1,
+      "degree": "ปริญญาตรี สาขาจิตวิทยา",
+      "school": "มหาวิทยาลัยศรีนครินทรวิโรฒ",
+      "period": "2562 - 2566"
+    },
+    {
+      "id": 2,
+      "degree": "ปริญญาโท สาขาคณิตศาสตร์ศึกษา",
+      "school": "มหาวิทยาลัยศรีนครินทรวิโรฒ ประสานมิตร",
+      "period": "2566 - ปัจจุบัน"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "อบรมจิตอาสาครูอาสา",
+      "location": "จ.เชียงใหม่",
+      "level": "ป.1 - ม.3",
+      "period": "ม.ค. - ธ.ค. 2566"
+    },
+    {
+      "id": 2,
+      "title": "โรงเรียนชุมชนบวรรังษี",
+      "location": "จ.สมุทรปราการ",
+      "level": "ป.1 - ม.3",
+      "period": "พ.ค. 2566 - มี.ค. 2567"
+    },
+    {
+      "id": 3,
+      "title": "โรงเรียนวัดบางปิ้ง",
+      "location": "จ.สมุทรปราการ",
+      "level": "ป.1 - ม.3",
+      "period": "พ.ค. 2567 - ปัจจุบัน"
+    }
+  ],
+  "teachableSubjects": [
+    "คณิตศาสตร์",
+    "แนะแนวและจิตวิทยาการเรียนรู้",
+    "ภาษาอังกฤษพื้นฐาน"
+  ]
+
+}
+]
