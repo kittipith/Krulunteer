@@ -6,8 +6,9 @@ import Find from './pages/Find'
 import Post from './pages/Post'
 import Login from './pages/Login'
 import Detail from './pages/Detail'
-import User from './pages/Profile'
+// import User from './pages/Profile'
 import Profile from './pages/Profile'
+import Result from './pages/Result'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/user/:id" element={<Profile />} />
+            <Route path="/result" element={<Result />} />
           </Routes>
         </main>
       </div>

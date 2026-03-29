@@ -22,8 +22,6 @@ export default function Step2({ formData, setFormData }) {
             [e.target.id]: e.target.value
         });
     };
-
-
     
     return (
         <div className="space-y-4 font-noto-sans-thai">
