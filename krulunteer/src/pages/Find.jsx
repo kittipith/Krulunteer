@@ -1,5 +1,4 @@
 import '../index.css'
-import Header from '../components/Header'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -40,7 +39,6 @@ function Find(){
 
     return(
         <>
-            <Header />
             <div className='bg-[#F9F9F9] min-h-screen pt-[8%] px-[10%]'>
                 <h1 className='font-playfair font-semibold text-[3rem]'>Find a Schools</h1>
                 <p className='font-noto-sans-thai text-[1.2rem] text-[#808080]'>โรงเรียนต่าง ๆ กำลังรออยู่ หาโรงเรียนที่ใช่สำหรับคุณได้เลย</p>

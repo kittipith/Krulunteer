@@ -7,6 +7,7 @@ import { CiCircleCheck } from "react-icons/ci";
 
 function ListApplicant() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <div className='mb-5'>
             <div className="flex justify-start items-center gap-3 px-5 py-3 mb-5 bg-white border border-gray-300 rounded-2xl hover:shadow-md transition duration-200 ease-in-out">
@@ -28,10 +29,7 @@ function ListApplicant() {
                     </div>
                 </div>
             </div>
-            <ApplicantPopup 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-            />
+            <ApplicantPopup isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     )
 }

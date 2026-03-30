@@ -4,8 +4,39 @@ import { CiLock } from "react-icons/ci";
 import { GrLinkNext } from "react-icons/gr";
 
 import Google from "../assets/google.png"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import ProfileData from "../data/StaffData.json";
 
-function LoginStaff(){
+function LoginStaff({ setStaff, staff }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        const Profile = ProfileData.find(profile => profile.email === email && profile.password === password);
+        if (Profile){
+            setStaff(Profile);
+            setEmail('');
+            setPassword('');
+            Swal.fire({
+                title: "Login สำเร็จ!",
+                text: `ยินดีต้อนรับคุณ ${Profile.name}`,
+                icon: "success",
+                draggable: true
+            }).then(() => {
+                navigate("/"); 
+            });
+        }else{
+            Swal.fire({
+                icon: "error",
+                title: "Login ผิดพลาด",
+                text: "Email หรือ Password ไม่ถูกต้อง กรุณาลองใหม่",
+            });
+            setEmail('');
+            setPassword('');
+        }
+    };
     return(
         <div className="w-full flex flex-col items-center justify-start mt-[30%]">
             <div className="flex items-center justify-center w-[130px] h-[130px] border border-[#e6e5d6] rounded-full">
@@ -19,15 +50,15 @@ function LoginStaff(){
                 <label htmlFor="email" className="text-[1.2rem] font-medium font-noto-sans-thai">Email</label>
                 <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 focus-within:border-yellow-400">
                     <MdOutlineEmail size={20} className="absolute left-4 text-[#D6E6DD]" />
-                    <input id="email" type="email" placeholder="Example@school.ac.th" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" />
+                    <input id="email" type="email" placeholder="Example@school.ac.th" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <label htmlFor="password" className="text-[1.2rem] font-medium font-noto-sans-thai">Password</label>
                 <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 focus-within:border-yellow-400">
                     <CiLock size={20} className="absolute left-4 text-[#D6E6DD]" />
-                    <input id="password" type="password" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" />
+                    <input id="password" type="password" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>
-            <button className="w-[80%] bg-[#FFC224] text-white py-3 rounded-2xl text-[1.2rem] cursor-pointer hover:bg-yellow-600 transition-colors">
+            <button className="w-[80%] bg-[#FFC224] text-white py-3 rounded-2xl text-[1.2rem] cursor-pointer hover:bg-yellow-600 transition-colors" onClick={handleLogin}>
                 Log in
                 <GrLinkNext size={20} className="inline-block ml-2" />
             </button>

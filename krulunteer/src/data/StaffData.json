@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "email": "66070018@kmitl.ac.th",
+        "password": "12345678",
+        "name": "นายสมชาย สายชม",
+        "profile": "https://img.pikbest.com/png-images/20241202/boy-profile-photo-cartoon_11152300.png!sw800"
+    },{
+        "id": 2,
+        "email": "66070292@kmitl.ac.th",
+        "password": "12345678",
+        "name": "นายสมศักดิ์ สวัสดิวัตน์",
+        "profile": "https://png.pngtree.com/png-vector/20241203/ourmid/pngtree-icon-cute-boy-avatar-picture-illustration-vector-png-image_14553012.png"
+    }
+]

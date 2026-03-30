@@ -1,10 +1,9 @@
 import '../index.css'
-import Header from '../components/Header'
 import profileData from '../data/ProfileData.json'
 import { MdOutlinePhoneInTalk } from "react-icons/md"
-import { IoIosMail } from "react-icons/io"
+import { IoIosMail, IoIosArrowRoundBack } from "react-icons/io"
 import { FaLine } from "react-icons/fa6"
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 
 function Profile() {
@@ -17,7 +16,6 @@ function Profile() {
     if (!selectedProfile) {
         return (
             <>
-                <Header />
                 <div className="min-h-screen flex items-center justify-center">
                     <h1 className="text-2xl font-bold text-red-500 font-noto-sans-thai">
                         ไม่พบข้อมูลผู้ใช้
@@ -75,10 +73,14 @@ function Profile() {
 
     return (
         <>
-            <Header />
-
             <div className="bg-[#F9F9F9] min-h-screen flex flex-col items-center w-full px-4 sm:px-6 md:px-10 pt-24 sm:pt-28 md:pt-32 pb-10 md:pb-16">
                 <div className="max-w-6xl w-full">
+                    <Link to="/" className="w-fit block">
+                        <button className='group flex justify-center items-center w-fit text-[#7F7F7F] hover:text-[#368C64] text-[1.2rem] mb-2 cursor-pointer transition-all duration-300 ease-in-out'>
+                            <IoIosArrowRoundBack size={30} className="transition-transform duration-300 group-hover:-translate-x-1" />
+                            <span>Back</span>
+                        </button>
+                    </Link>
 
                     <div className="mb-12 bg-white/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full">

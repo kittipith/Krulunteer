@@ -1,5 +1,4 @@
 import '../index.css'
-import Header from '../components/Header'
 import { useState } from "react";
 import PostStep1 from "../components/postStep1";
 import PostStep2 from "../components/postStep2";
@@ -94,7 +93,6 @@ function Post(){
 
     return(
         <>
-            <Header />
             <div className="bg-[#F9F9F9] min-h-screen flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-10 md:py-16 mt-10">
                 
                 <div className="w-full max-w-3xl bg-white/90 backdrop-blur-sm my-6 md:my-10 p-5 sm:p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100">

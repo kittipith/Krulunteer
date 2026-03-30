@@ -1,4 +1,3 @@
-import Header from '../components/Header'
 import Graph from '../components/Graph'
 import Api from '../components/Api'
 import Benefit from '../components/Benefits'
@@ -13,12 +12,11 @@ import { FaRegMoneyBillAlt } from "react-icons/fa";
 function Detail(){
     return(
         <div>
-            <Header />
             <div className='bg-[#F9F9F9] min-h-screen pt-[8%] px-[20%] pb-10'>
-                <Link to="/find">
-                    <button className='flex justify-center items-center w-fit text-[#7F7F7F] text-[1.2rem] cursor-pointer hover:text-[1.3rem]'>
-                        <IoIosArrowRoundBack size={30} />
-                        Back
+                <Link to="/" className="w-fit block">
+                    <button className='group flex justify-center items-center w-fit text-[#7F7F7F] hover:text-[#368C64] text-[1.2rem] mb-2 cursor-pointer transition-all duration-300 ease-in-out'>
+                        <IoIosArrowRoundBack size={30} className="transition-transform duration-300 group-hover:-translate-x-1" />
+                        <span>Back</span>
                     </button>
                 </Link>
                 <div className='flex justify-between items-center'>
