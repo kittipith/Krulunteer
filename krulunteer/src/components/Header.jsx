@@ -21,7 +21,7 @@ function Header({ setTeacher, setStaff, teacher, staff }) {
             {(!teacher || staff) && (
                 <Link to="/post" className={path === '/post' ? activeStyle : inactiveStyle} onClick={() => setIsMobileMenuOpen(false)}>Post a Need</Link>
             )}
-            <Link to="/find" className={path === '/find' ? activeStyle : inactiveStyle} onClick={() => setIsMobileMenuOpen(false)}>Find Schools</Link>
+            <Link to="/find" className={path.startsWith('/find') ? activeStyle : inactiveStyle} onClick={() => setIsMobileMenuOpen(false)}>Find Schools</Link>
         </>
     );
 

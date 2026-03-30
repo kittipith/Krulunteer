@@ -121,7 +121,7 @@ function Find(){
                             <span className='text-[#595959] bg-[#E7E7E7] px-3 py-1 rounded-lg'>ภาษาอังกฤษ</span>
                         </div>
                         <div className='flex justify-between mt-3 font-noto-sans-thai'>
-                            <Link to="/detail">
+                            <Link to="/find/detail">
                                 <div className='flex items-center justify-center text-[#368C64] cursor-pointer'>
                                     <span className='text-[1.3rem]'>รายละเอียด</span>
                                     <MdNavigateNext size={30} />
