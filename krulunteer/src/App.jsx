@@ -27,7 +27,7 @@ function App() {
             <Route path="/find" element={<Find />} />
             <Route path="/post" element={<Post />} />
             <Route path="/login" element={<Login teacher={teacher} setTeacher={setTeacher} staff={staff} setStaff={setStaff} />} />
-            <Route path="/find/detail" element={<Detail />} />
+            <Route path="/find/detail/:id" element={<Detail />} />
             <Route path="/user/:id" element={<Profile />} />
             <Route path="/result" element={<Result />} />
           </Routes>

@@ -1,6 +1,6 @@
 import { LuSchool } from "react-icons/lu";
-import { MdOutlineEmail } from "react-icons/md";
-import { CiLock } from "react-icons/ci";
+import { AiOutlineMail } from "react-icons/ai";
+import { IoLockClosedOutline } from "react-icons/io5";
 import { GrLinkNext } from "react-icons/gr";
 
 import Google from "../assets/google.png"
@@ -49,12 +49,12 @@ function LoginStaff({ setStaff, staff }) {
             <div className="w-[80%] mt-7 mb-5">
                 <label htmlFor="email" className="text-[1.2rem] font-medium font-noto-sans-thai">Email</label>
                 <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 focus-within:border-yellow-400">
-                    <MdOutlineEmail size={20} className="absolute left-4 text-[#D6E6DD]" />
+                    <AiOutlineMail size={20} className="absolute left-4 text-gray-600" />
                     <input id="email" type="email" placeholder="Example@school.ac.th" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <label htmlFor="password" className="text-[1.2rem] font-medium font-noto-sans-thai">Password</label>
                 <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 focus-within:border-yellow-400">
-                    <CiLock size={20} className="absolute left-4 text-[#D6E6DD]" />
+                    <IoLockClosedOutline size={20} className="absolute left-4 text-gray-600" />
                     <input id="password" type="password" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>

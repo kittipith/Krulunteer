@@ -1,6 +1,7 @@
 import '../index.css'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import schools from '../data/School.json'
 
 import { IoIosSearch } from "react-icons/io";
 import { FaFilter } from "react-icons/fa";
@@ -39,7 +40,7 @@ function Find(){
 
     return(
         <>
-            <div className='bg-[#F9F9F9] min-h-screen pt-[8%] px-[10%]'>
+            <div className='bg-[#F9F9F9] min-h-screen pt-[8%] pb-10 px-[10%]'>
                 <h1 className='font-playfair font-semibold text-[3rem]'>Find a Schools</h1>
                 <p className='font-noto-sans-thai text-[1.2rem] text-[#808080]'>โรงเรียนต่าง ๆ กำลังรออยู่ หาโรงเรียนที่ใช่สำหรับคุณได้เลย</p>
                 <div className='grid grid-cols-[77%_10%_10%] my-5 w-full gap-5'>
@@ -105,31 +106,41 @@ function Find(){
                         </div>
                     </div>
                 )}
-                <div className='grid grid-cols-3 gap-10 w-full mt-5'>
-                    <div className='flex flex-col px-5 py-2 border border-gray-300 rounded-2xl bg-white gap-2 shadow-sm hover:shadow-md hover:-translate-y-1 transform transition duration-300'>
-                        <h2 className='font-playfair font-medium text-[1.5rem]'>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h2>
-                        <div className='flex items-center font-noto-sans-thai'>
-                            <IoLocationOutline />
-                            <span className='text-[#808080] text-[1rem] mr-2'>กรุงเทพมหานคร, ลาดกระบัง</span>
-                            <div className='flex items-center'>
-                                <CiClock2 />
-                                <span className='text-[#808080] text-[1rem]'>1 ปี</span>
+                <div className='grid grid-cols-3 gap-10 w-full my-5'>
+                    {schools.map((school) => (
+                        <div className='flex flex-col px-5 py-2 border border-gray-300 rounded-2xl bg-white gap-2 shadow-sm hover:shadow-md hover:-translate-y-1 transform transition duration-300'>
+                            <h2 className='font-playfair font-medium text-[1.5rem]'>{school.Name}</h2>
+                            <div className='flex items-center font-noto-sans-thai text-[#808080]'>
+                                <IoLocationOutline />
+                                <span className='text-[1rem] mr-2'>{school.Province}, {school.District}</span>
+                                <div className='flex items-center gap-1'>
+                                    <CiClock2 />
+                                    <span className='text-[1rem]'>1 ปี</span>
+                                </div>
+                            </div>
+                            <div className='flex gap-2 font-noto-sans-thai'>
+                                {school.Subject.map((s, index) => (
+                                        <span key={index} className="text-[#595959] bg-[#E7E7E7] px-3 py-1 rounded-lg">
+                                            {s}
+                                        </span>
+                                ))}
+                            </div>
+                            <div className='flex justify-between items-center mt-3 font-noto-sans-thai'>
+                                <Link to={`/find/detail/${school.ID}`}>
+                                    <div className='flex items-center justify-center text-[#368C64] cursor-pointer'>
+                                        <span className='text-[1.3rem]'>รายละเอียด</span>
+                                        <MdNavigateNext size={30} />
+                                    </div>
+                                </Link>
+                                {(() => {
+                                    if (school.Priority === "1") return <span className='bg-[#00b120] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปกติ</span>;
+                                    if (school.Priority === "2") return <span className='bg-[#ffd000] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปานกลาง</span>;
+                                    if (school.Priority === "3") return <span className='bg-[#FF0000] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>เร่งด่วน</span>;
+                                    return null;
+                                })()}
                             </div>
                         </div>
-                        <div className='flex gap-2 font-noto-sans-thai'>
-                            <span className='text-[#595959] bg-[#E7E7E7] px-3 py-1 rounded-lg'>คณิตศาสตร์</span>
-                            <span className='text-[#595959] bg-[#E7E7E7] px-3 py-1 rounded-lg'>ภาษาอังกฤษ</span>
-                        </div>
-                        <div className='flex justify-between mt-3 font-noto-sans-thai'>
-                            <Link to="/find/detail">
-                                <div className='flex items-center justify-center text-[#368C64] cursor-pointer'>
-                                    <span className='text-[1.3rem]'>รายละเอียด</span>
-                                    <MdNavigateNext size={30} />
-                                </div>
-                            </Link>
-                            <span className='bg-[#FF0000] font-medium text-white text-[1.2rem] px-4 py-1 rounded-2xl'>เร่งด่วน</span>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </>

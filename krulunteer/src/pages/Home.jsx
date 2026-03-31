@@ -15,7 +15,7 @@ function Home(){
     }
     return(
         <>
-            <div className="bg-[#F9F9F9] min-h-screen flex flex-col items-center w-full px-4 sm:px-6 md:px-10 pt-24 sm:pt-28 md:pt-32 pb-10 md:pb-16">
+            <div className="bg-[#F9F9F9] min-h-screen flex flex-col items-center w-full pt-[25%] sm:pt-[20%] lg:pt-[10%] px-4 sm:px-6 md:px-10 pb-10 md:pb-16">
                 <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div>
                         <p className="text-[#2F855A] text-sm mb-2 font-noto-sans-thai">

@@ -4,12 +4,11 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import { FiWind } from "react-icons/fi";
 import { CiHospital1 } from "react-icons/ci";
 
-export default function LocationInfo() {
-    // พิกัด test
-    const lat = 13.73004522057584;
-    const lon = 100.77828594056845;
-    const OPENWEATHER_API_KEY = import.meta.env.OPENWEATHER_API_KEY;
-    const GEOAPIFY_API_KEY = import.meta.env.GEOAPIFY_API_KEY;
+export default function LocationInfo({ Lat, Lon }) {
+    const lat = Lat;
+    const lon = Lon;
+    const OPENWEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    const GEOAPIFY_API_KEY = import.meta.env.VITE_GEOAPIFY_API_KEY;
 
     const [data, setData] = useState({
         weatherTemp: "-",
@@ -18,8 +17,6 @@ export default function LocationInfo() {
         pm25Level: "กำลังโหลด...",
         hospitalDist: "กำลังโหลด..."
     });
-
-    const [loading, setLoading] = useState(true);
 
     const getAqiText = (aqiIndex) => {
         switch (aqiIndex) {
@@ -31,11 +28,9 @@ export default function LocationInfo() {
             default: return "-";
         }
     };
-    console.log("ค่า API Key ตอนนี้คือ:", import.meta.env.OPENWEATHER_API_KEY, import.meta.env.GEOAPIFY_API_KEY);
     useEffect(() => {
         const fetchAllData = async () => {
             try {
-                setLoading(true);
                 // ดึงข้อมูลสภาพอากาศ
                 const weatherPromise = fetch(
                     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=th`
@@ -52,7 +47,6 @@ export default function LocationInfo() {
                 const [weatherRes, pm25Res, hospitalRes] = await Promise.all([
                     weatherPromise, pm25Promise, hospitalPromise
                 ]);
-                // อัปเดตข้อมูลเพื่อนำไปแสดงผล
                 setData({
                     weatherTemp: weatherRes ? Math.round(weatherRes.main.temp) : "-",
                     weatherDesc: weatherRes ? weatherRes.weather[0].description : "ไม่สามารถดึงข้อมูลได้",
@@ -64,8 +58,6 @@ export default function LocationInfo() {
                 });
             } catch (error) {
                 console.error("Error fetching data:", error);
-            } finally {
-                setLoading(false);
             }
         };
         fetchAllData();

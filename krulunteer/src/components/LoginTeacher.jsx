@@ -44,7 +44,7 @@ function LoginTeacher({ teacher, setTeacher }) {
             <div className="w-[80%] mt-7 mb-5">
                 <label htmlFor="id-card" className="text-[1.2rem] font-medium font-noto-sans-thai">เลขบัตรประชาชน</label>
                 <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 focus-within:border-green-800">
-                    <FaRegAddressCard size={20} className="absolute left-4 text-[#D6E6DD]" />
+                    <FaRegAddressCard size={20} className="absolute left-4 text-gray-600" />
                     <input id="id-card" type="text" value={id} onChange={(e) => setId(e.target.value)} placeholder="เช่น 1-1000-00000-00-0" className="w-full pl-10 outline-none text-gray-700 text-[1.2rem]" />
                 </div>
             </div>
