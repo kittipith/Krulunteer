@@ -29,7 +29,7 @@ const workHistories = [
     },
 ];
 
-const ApplicantPopup = ({ isOpen, onClose }) => {
+const ApplicantPopup = ({ isOpen, onClose, applicant }) => {
     if (!isOpen) return null;
 
     return (
@@ -40,14 +40,13 @@ const ApplicantPopup = ({ isOpen, onClose }) => {
                         <IoClose size={20} />
                     </button>
                     <div className="flex items-center gap-5">
-                        <img src={profile} alt="Profile" className="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm"/>
+                        <img src={applicant.pic} alt="Profile" className="w-20 h-20 rounded-full object-cover border-2 border-white shadow-sm"/>
                         <div>
-                            <h2 className="text-[1.7rem] font-semibold text-gray-800 font-noto-sans-thai">นายกิตติพิชญ์ หิรัญวงศ์ (21 ปี)</h2>
-                            <p className="text-gray-500 text-[1.1rem] font-noto-sans-thai mt-1">ครูชำนาญการพิเศษ</p>
+                            <h2 className="text-[1.7rem] font-semibold text-gray-800 font-noto-sans-thai">{applicant.name} ({applicant.age} ปี)</h2>
+                            <p className="text-gray-500 text-[1.1rem] font-noto-sans-thai mt-1">{applicant.teach_level}</p>
                         </div>
                     </div>
                 </div>
-
                 <div className="px-8 py-5 overflow-y-auto flex flex-col gap-8 text-sm text-gray-700">
                     <section>
                         <h3 className="flex items-center gap-2 font-medium font-noto-sans-thai text-gray-900 mb-3 text-[1.2rem]">
@@ -55,28 +54,27 @@ const ApplicantPopup = ({ isOpen, onClose }) => {
                             วิชาที่สอนได้
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                            <span className="px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-100">คณิตศาสตร์</span>
-                            <span className="px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-100">ภาษาอังกฤษ</span>
+                            {applicant.teachableSubjects.map((s, index) => (
+                                <span key={index} className="px-4 py-1.5 bg-emerald-50 text-emerald-800 rounded-full border border-emerald-100">
+                                    {s}
+                                </span>
+                            ))}
                         </div>
                     </section>
-
                     <section>
                         <h3 className="flex items-center gap-2 font-medium font-noto-sans-thai text-gray-900 mb-3 text-[1.2rem]">
                             <IoSchoolOutline className="text-emerald-700" size={25} />
                             การศึกษา
                         </h3>
-                        <ul className="space-y-4 font-noto-sans-thai">
-                            <li className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-emerald-600 before:rounded-full">
-                                <p className="font-medium text-gray-900 text-[1rem]">ปริญญาโท สาขาคณิตศาสตรศึกษา</p>
-                                <p className="text-gray-500 text-[0.9rem] mt-0.5">มหาวิทยาลัยศรีนครินทรวิโรฒ ประสานมิตร - 2564</p>
-                            </li>
-                            <li className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-emerald-600 before:rounded-full">
-                                <p className="font-medium text-gray-900 text-[1rem]">ปริญญาตรี สาขาคณิตศาสตร์</p>
-                                <p className="text-gray-500 text-[0.9rem] mt-0.5">มหาวิทยาลัยศรีนครินทรวิโรฒ ประสานมิตร - 2560</p>
-                            </li>
-                        </ul>
+                        {applicant.education.map((education) => (
+                            <ul className="space-y-4 font-noto-sans-thai">
+                                <li className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-emerald-600 before:rounded-full">
+                                    <p className="font-medium text-gray-900 text-[1rem]">{education.degree}</p>
+                                    <p className="text-gray-500 text-[0.9rem] mt-0.5">{education.school} • {education.period}</p>
+                                </li>
+                            </ul>
+                        ))}
                     </section>
-
                     <section>
                         <h3 className="flex items-center gap-2 font-medium font-noto-sans-thai text-gray-900 mb-3 text-[1.2rem]">
                             <GoHistory className="text-emerald-700" size={25} />
@@ -84,23 +82,23 @@ const ApplicantPopup = ({ isOpen, onClose }) => {
                         </h3>
 
                         <div className="relative border-l border-gray-200 ml-2.5 space-y-6 font-noto-sans-thai">
-                            {workHistories.map((work) => (
-                                <div key={work.id} className="relative pl-7">
+                            {applicant.experience.map((exp) => (
+                                <div key={exp.id} className="relative pl-7">
                                     <div className="absolute -left-[9px] top-1.5 flex items-center justify-center w-[17px] h-[17px] rounded-full bg-white border-[2px] border-emerald-500">
                                         <div className="w-[7px] h-[7px] bg-emerald-500 rounded-full"></div>
                                     </div>
                                     <div className="bg-[#f9f9f9] p-4 rounded-xl">
-                                        <h4 className="font-medium text-gray-900 text-[1.1rem]">{work.school}</h4>
+                                        <h4 className="font-medium text-gray-900 text-[1.1rem]">{exp.title}</h4>
                                         <p className="flex items-center gap-1 text-gray-400 text-[1rem] mt-1">
                                             <IoLocationOutline size={15} />
-                                            {work.location}
+                                            {exp.location}
                                         </p>
                                         <div className="flex items-center gap-3 mt-3">
                                             <span className="px-3 py-0.5 bg-[#facc15] text-yellow-900 text-[1rem] font-semibold rounded-full">
-                                                {work.level}
+                                                {exp.level}
                                             </span>
                                             <span className="text-gray-400 text-[1rem]">
-                                                {work.date}
+                                                {exp.period}
                                             </span>
                                         </div>
                                     </div>

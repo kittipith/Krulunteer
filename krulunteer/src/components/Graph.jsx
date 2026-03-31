@@ -12,7 +12,7 @@ function Graph({ Data }) {
 
     return (
         <div className='border border-[#B3B3B3] rounded-2xl bg-white shadow-sm'>
-            <h2 className='px-5 pt-5 text-[1.5rem] font-noto-sans-thai'>สภาพแวดล้อมรอบโรงเรียน</h2>
+            <h2 className='px-5 pt-5 text-[1.5rem] font-noto-sans-thai font-medium'>สภาพแวดล้อมรอบโรงเรียน</h2>
             <p className='px-5 text-[1rem] text-[#B3B3B3] font-noto-sans-thai'>แสดงระดับของสภาพแวดล้อมรอบโรงเรียน</p>
             <p className='px-5 text-[1rem] text-[#73AD92] font-noto-sans-thai'>5 ดีมาก 4 ดี 3 ปานกลาง 2 แย่ 1 แย่มาก</p>
             <div className="w-full h-[250px] md:h-[300px] font-noto-sans-thai">

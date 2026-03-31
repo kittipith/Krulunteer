@@ -14,7 +14,7 @@ function Result(){
                     </button>
                 </Link>
                 <h1 className='font-playfair font-semibold text-[3rem]'>Match Result</h1>
-                <p>ผู้สมัครทั้งหมด 3 คน</p>
+                <p>ผู้สมัครทั้งหมด 2 คน</p>
                 <div className='mt-5'>
                     <Applicant />
                 </div>

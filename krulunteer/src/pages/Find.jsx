@@ -115,7 +115,7 @@ function Find(){
                                 <span className='text-[1rem] mr-2'>{school.Province}, {school.District}</span>
                                 <div className='flex items-center gap-1'>
                                     <CiClock2 />
-                                    <span className='text-[1rem]'>1 ปี</span>
+                                    <span className='text-[1rem]'>{school.Duration}</span>
                                 </div>
                             </div>
                             <div className='flex gap-2 font-noto-sans-thai'>
@@ -133,9 +133,9 @@ function Find(){
                                     </div>
                                 </Link>
                                 {(() => {
-                                    if (school.Priority === "1") return <span className='bg-[#00b120] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปกติ</span>;
-                                    if (school.Priority === "2") return <span className='bg-[#ffd000] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปานกลาง</span>;
-                                    if (school.Priority === "3") return <span className='bg-[#FF0000] flex justify-center items-center font-medium text-white text-[1.3rem] px-4 py-1 rounded-xl'>เร่งด่วน</span>;
+                                    if (school.Priority === "1") return <span className='bg-[#40a576] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปกติ</span>;
+                                    if (school.Priority === "2") return <span className='bg-[#e8b730] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปานกลาง</span>;
+                                    if (school.Priority === "3") return <span className='bg-[#FF0000] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>เร่งด่วน</span>;
                                     return null;
                                 })()}
                             </div>
