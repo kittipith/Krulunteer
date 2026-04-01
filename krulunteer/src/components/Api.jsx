@@ -64,7 +64,7 @@ export default function LocationInfo({ Lat, Lon }) {
     }, []);
 
   return (
-    <div className="flex flex-col gap-4 w-full ml-3">
+    <div className="flex flex-col gap-4 w-full ml-0 lg:ml-3 mt-5 lg:mt-0">
         <div className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#FEFFE2] text-black">
                 <TiWeatherPartlySunny size={24} />

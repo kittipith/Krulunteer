@@ -53,7 +53,7 @@ function Detail(){
 
     return(
         <div>
-            <div className='bg-[#F9F9F9] min-h-screen pt-[8%] px-[20%] pb-10'>
+            <div className='bg-[#F9F9F9] min-h-screen pt-[25%] sm:pt-[20%] lg:pt-[15%] xl:pt-[8%] px-[5%] sm:px-[10%] lg:px-[20%] pb-10'>
                 <Link to="/find" className="w-fit block">
                     <button className='group flex justify-center items-center w-fit text-[#7F7F7F] hover:text-[#368C64] text-[1.2rem] mb-2 cursor-pointer transition-all duration-300 ease-in-out'>
                         <IoIosArrowRoundBack size={30} className="transition-transform duration-300 group-hover:-translate-x-1" />
@@ -63,9 +63,9 @@ function Detail(){
                 <div className='flex justify-between items-center font-noto-sans-thai'>
                     <h1 className='font-playfair font-medium text-[2.5rem]'>{school.Name}</h1>
                     {(() => {
-                        if (school.Priority === "1") return <span className='bg-[#40a576] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปกติ</span>;
-                        if (school.Priority === "2") return <span className='bg-[#e8b730] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปานกลาง</span>;
-                        if (school.Priority === "3") return <span className='bg-[#FF0000] flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>เร่งด่วน</span>;
+                        if (school.Priority === "1") return <span className='bg-[#40a576] hidden xl:flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปกติ</span>;
+                        if (school.Priority === "2") return <span className='bg-[#e8b730] hidden xl:flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>ปานกลาง</span>;
+                        if (school.Priority === "3") return <span className='bg-[#FF0000] hidden xl:flex justify-center items-center font-light text-white text-[1.3rem] px-4 py-1 rounded-xl'>เร่งด่วน</span>;
                         return null;
                     })()}
                 </div>
@@ -77,7 +77,7 @@ function Detail(){
                         <span className='text-[#808080] text-[1rem]'>{school.Duration}</span>
                     </div>
                 </div>
-                <div className='flex justify-between items-center my-3 font-noto-sans-thai'>
+                <div className='flex flex-col sm:flex-row sm:justify-between items-start sm:items-center my-3 font-noto-sans-thai'>
                     <div>
                         {school.Subject.map((s, index) => (
                             <span key={index} className="text-[#368C64] bg-[#E0FFF1] px-3 py-1 rounded-full mr-2">
@@ -85,7 +85,7 @@ function Detail(){
                             </span>
                         ))}
                     </div>
-                    <span className='flex justify-center items-center gap-2 text-[#B45309] bg-[#FEFFE2] border border-[#ffdd00] px-5 py-1 rounded-full'>
+                    <span className='flex justify-center items-center gap-2 text-[#B45309] bg-[#FEFFE2] border border-[#ffdd00] px-5 py-1 mt-5 sm:mt-0 rounded-full'>
                         <FaRegMoneyBillAlt size={25} />
                         <span className='text-[1.2rem] font-medium mt-1'>
                             {school.NoSalary ? "ไม่มีเงินเดือน" : `฿${school.Budget.toLocaleString()} / เดือน`}
@@ -97,7 +97,7 @@ function Detail(){
                         {"<"}
                     </button>
                     <div className="w-full relative">
-                        <img key={index} src={images[index]} alt={`${school.Name} - ${index + 1}`} className='w-full h-[45vh] object-cover rounded-2xl shadow-lg' />
+                        <img key={index} src={images[index]} alt={`${school.Name} - ${index + 1}`} className='w-full h-[30vh] sm:h-[45vh] object-cover rounded-2xl shadow-lg' />
                         <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
                             {index + 1} / {images.length}
                         </div>
@@ -106,9 +106,9 @@ function Detail(){
                         {">"}
                     </button>
                 </div>
-                <div className='grid grid-cols-[59%_40%] my-5'>
+                <div className='grid grid-cols-1 lg:grid-cols-[59%_40%] my-5'>
                     <Graph Data={school.Environment} />
-                    <Api Lat={school.Lat} Lon={school.Lon}/>
+                    <Api Lat={school.Lat} Lon={school.Lon} />
                 </div>
                 <Benefit welfare={school.Welfare} />
                 <div>

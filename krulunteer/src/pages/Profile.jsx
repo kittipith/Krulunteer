@@ -3,49 +3,32 @@ import profileData from '../data/ProfileData.json'
 import { MdOutlinePhoneInTalk } from "react-icons/md"
 import { IoIosMail, IoIosArrowRoundBack } from "react-icons/io"
 import { FaLine } from "react-icons/fa6"
+import { LuSchool } from "react-icons/lu";
+import { IoCalendarOutline } from "react-icons/io5";
+import { GoTrophy } from "react-icons/go";
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
 import EditProfileModal from "../components/EditProfile"
 
 function Profile() {
     const { id } = useParams()
-
-    // หา user ตาม id จาก JSON
-    const selectedProfile = profileData.find((item) => item.id === Number(id))
-
-    // ถ้าไม่เจอข้อมูล
-    if (!selectedProfile) {
-        return (
-            <>
-                <div className="min-h-screen flex items-center justify-center">
-                    <h1 className="text-2xl font-bold text-red-500 font-noto-sans-thai">
-                        ไม่พบข้อมูลผู้ใช้
-                    </h1>
-                </div>
-            </>
-        )
-    }
-
-    // state สำหรับข้อมูลโปรไฟล์ที่แก้ไขได้
-    const [profile, setProfile] = useState(selectedProfile)
-
-    // state เปิด/ปิด popup
+    const selectedProfile = profileData.find((item) => item.id === Number(id));
+    const [profile, setProfile] = useState(selectedProfile);
     const [isOpen, setIsOpen] = useState(false)
 
-    // state เก็บค่าฟอร์ม
     const [formData, setFormData] = useState({
-        name: profile.name,
-        age: profile.age,
-        teach_level: profile.teach_level,
-        phone: profile.contact.phone,
-        email: profile.contact.email,
-        line: profile.contact.line,
-        teachableSubjects: profile.teachableSubjects,
-        education: profile.education,
-        experience: profile.experience
+        name: "",
+        age: "",
+        teach_level: "",
+        phone: "",
+        email: "",
+        line: "",
+        teachableSubjects: "",
+        education: "",
+        experience: ""
     })
 
-    // เปิด popup แล้ว sync ข้อมูลล่าสุดลงฟอร์ม
+    // เปิด popup จะดึงค่าจาก profile ใช้ join ทำเป็น string
     const handleOpenModal = () => {
         setFormData({
             name: profile.name,
@@ -54,9 +37,10 @@ function Profile() {
             phone: profile.contact.phone,
             email: profile.contact.email,
             line: profile.contact.line,
-            teachableSubjects: profile.teachableSubjects,
-            education: profile.education,
-            experience: profile.experience
+            // แปลง Array เป็น String
+            teachableSubjects: profile.teachableSubjects.join(", "),
+            education: profile.education.map(e => `${e.degree} | ${e.school} | ${e.period}`).join("\n"),
+            experience: profile.experience.map(e => `${e.title} | ${e.location} | ${e.level} | ${e.period}`).join("\n")
         })
         setIsOpen(true)
     }
@@ -72,28 +56,19 @@ function Profile() {
                 email: formData.email,
                 line: formData.line
             },
+            // แปลง String กลับเป็น Array
             teachableSubjects: formData.teachableSubjects.split(",").map(s => s.trim()),
-            education: formData.education.split("\n").map((line, i) => ({
-                id: i + 1,
-                degree: line,
-                school: "",
-                period: ""
-            })),
-            experience: formData.experience.split("\n").map((line, i) => ({
-                id: i + 1,
-                title: line,
-                location: "",
-                level: "",
-                period: ""
-            }))
+            education: formData.education.split("\n").filter(line => line.trim() !== "").map((line, i) => {
+                const [degree, school, period] = line.split("|").map(s => s.trim());
+                return { id: i + 1, degree: degree || line, school: school || "", period: period || "" };
+            }),
+            experience: formData.experience.split("\n").filter(line => line.trim() !== "").map((line, i) => {
+                const [title, location, level, period] = line.split("|").map(s => s.trim());
+                return { id: i + 1, title: title || line, location: location || "", level: level || "", period: period || "" };
+            })
         }))
-
         setIsOpen(false)
     }
-
-
-
-
     return (
         <>
             <div className="bg-[#F9F9F9] min-h-screen flex flex-col items-center w-full px-4 sm:px-6 md:px-10 pt-24 sm:pt-28 md:pt-32 pb-10 md:pb-16">
@@ -107,14 +82,11 @@ function Profile() {
 
                     <div className="mb-12 bg-white/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full">
-
-
                             <div className="flex flex-col sm:flex-row items-center gap-5">
                                 <img
                                     src={profile.pic}
                                     alt={profile.name}
                                     className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border border-gray-200"/>
-
                                 <div className="text-center sm:text-left">
                                     <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 font-noto-sans-thai mb-2">
                                         {profile.name} ({profile.age})
@@ -126,10 +98,7 @@ function Profile() {
                             </div>
 
                             <div className="flex justify-center sm:justify-end sm:ml-auto">
-                                <button
-                                    onClick={handleOpenModal}
-                                    className="border border-gray-300 hover:border-gray-400 px-5 py-2 rounded-xl text-sm font-medium font-noto-sans-thai text-gray-700 hover:bg-gray-50 transition"
-                                >
+                                <button onClick={handleOpenModal} className="border border-gray-300 hover:border-gray-400 px-5 py-2 rounded-xl text-sm font-medium font-noto-sans-thai text-gray-700 hover:bg-gray-50 transition">
                                     แก้ไขข้อมูล
                                 </button>
                             </div>
@@ -137,8 +106,37 @@ function Profile() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-5'>
+                        <div className='bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex items-center gap-2'>
+                            <span className='bg-[#DBEAFE] w-20 h-20 rounded-2xl flex justify-center items-center'>
+                                <LuSchool size={40} className="text-[#3670ED]" />
+                            </span>
+                            <div>
+                                <h2 className='font-noto-sans-thai font-semibold text-[1.5rem]'>{profile.volunteerSchoolCount} โรงเรียน</h2>
+                                <span className='text-gray-400 text-sm sm:text-base font-noto-sans-thai font-medium'>จำนวนโรงเรียนที่เคยสอน</span>
+                            </div>
+                        </div>
+                        <div className='bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex items-center gap-2'>
+                            <span className='bg-[#D1FAE5] w-20 h-20 rounded-2xl flex justify-center items-center'>
+                                <IoCalendarOutline size={40} className="text-[#059669]" />
+                            </span>
+                            <div>
+                                <h2 className='font-noto-sans-thai font-semibold text-[1.5rem]'>{profile.teachingYears} ปี</h2>
+                                <span className='text-gray-400 text-sm sm:text-base font-noto-sans-thai font-medium'>จำนวนปีตั้งแต่เริ่มสอน</span>
+                            </div>
+                        </div>
+                        <div className='bg-white border border-gray-200 rounded-2xl p-5 shadow-sm flex items-center gap-2'>
+                            <span className='bg-[#FEF3C7] w-20 h-20 rounded-2xl flex justify-center items-center'>
+                                <GoTrophy size={40} className="text-[#D97706]" />
+                            </span>
+                            <div>
+                                <h2 className='font-noto-sans-thai font-semibold text-[1.5rem]'>{profile.awardsCont} รางวัล</h2>
+                                <span className='text-gray-400 text-sm sm:text-base font-noto-sans-thai font-medium'>จำนวนรางวัลที่ได้รับ</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                         <div className="space-y-6 lg:col-span-4">
                             <div className="bg-white/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
                                 <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-5 font-noto-sans-thai">
@@ -210,8 +208,6 @@ function Profile() {
                         </div>
 
                         <div className="space-y-8 lg:col-span-8">
-
-                            {/* ประสบการณ์ */}
                             <div className="bg-white/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
                                 <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-5 font-noto-sans-thai">
                                     ประสบการณ์
@@ -247,35 +243,28 @@ function Profile() {
                                     ))}
                                 </div>
                             </div>
-
-                            {/* วิชาที่สอนได้ */}
                             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
                                 <h2 className="text-lg font-bold text-gray-800 mb-4 font-noto-sans-thai">
                                     วิชาที่สามารถสอนได้
                                 </h2>
                                 <div className="flex flex-wrap gap-2">
                                     {profile.teachableSubjects.map((subject, index) => (
-                                        <span
-                                            key={index}
-                                            className="bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium font-noto-sans-thai"
-                                        >
+                                        <span key={index} className="bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium font-noto-sans-thai">
                                             {subject}
                                         </span>
                                     ))}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
 
             {isOpen && (
-                <EditProfileModal
-                    isOpen={isOpen}
-                    onClose={() => setIsOpen(false)}
-                    formData={formData}
-                    setFormData={setFormData}
+                <EditProfileModal 
+                    isOpen={isOpen} 
+                    onClose={() => setIsOpen(false)} 
+                    selectedProfile={profile}
                     onSave={handleSave}
                 />
             )}

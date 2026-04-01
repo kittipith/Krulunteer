@@ -1,33 +1,7 @@
-import React from 'react';
-import profile from '../assets/google.png'
 import { IoClose, IoBookOutline, IoSchoolOutline, IoMailOutline, IoLocationOutline } from 'react-icons/io5';
 import { GoHistory } from "react-icons/go";
 import { LuPhone } from "react-icons/lu";
 import { FaLine } from "react-icons/fa6";
-
-const workHistories = [
-    { 
-        id: 1, 
-        school: 'โรงเรียนเบญจมราชรังสฤษฎิ์', 
-        location: 'ฉะเชิงเทรา, อำเภอเมือง', 
-        level: 'ม.1 - ม.3', 
-        date: 'ม.ค. - ธ.ค. 2566' 
-    },
-    { 
-        id: 2, 
-        school: 'โรงเรียนเบญจมราชรังสฤษฎิ์', 
-        location: 'ฉะเชิงเทรา, อำเภอเมือง', 
-        level: 'ม.1 - ม.3', 
-        date: 'ม.ค. - ธ.ค. 2566' 
-    },
-    { 
-        id: 3, 
-        school: 'โรงเรียนเบญจมราชรังสฤษฎิ์', 
-        location: 'ฉะเชิงเทรา, อำเภอเมือง', 
-        level: 'ม.1 - ม.3', 
-        date: 'ม.ค. - ธ.ค. 2566' 
-    },
-];
 
 const ApplicantPopup = ({ isOpen, onClose, applicant }) => {
     if (!isOpen) return null;
@@ -80,7 +54,6 @@ const ApplicantPopup = ({ isOpen, onClose, applicant }) => {
                             <GoHistory className="text-emerald-700" size={25} />
                             ประวัติการทำงาน
                         </h3>
-
                         <div className="relative border-l border-gray-200 ml-2.5 space-y-6 font-noto-sans-thai">
                             {applicant.experience.map((exp) => (
                                 <div key={exp.id} className="relative pl-7">
@@ -115,19 +88,18 @@ const ApplicantPopup = ({ isOpen, onClose, applicant }) => {
                         <div className="flex flex-col items-start justify-start gap-2 bg-gray-50 rounded-xl p-4 text-black">
                             <div className='flex justify-center items-center gap-2 text-[1.1rem]'>
                                 <LuPhone size={20} />
-                                <span>081-234-5678</span>
+                                <span>{applicant.contact.phone}</span>
                             </div>
                             <div className='flex justify-center items-center gap-2 text-[1.1rem]'>
                                 <IoMailOutline size={20} />
-                                <span>Example@kmitl.ac.th</span>
+                                <span>{applicant.contact.email}</span>
                             </div>
                             <div className='flex justify-center items-center gap-2 text-[1.1rem]'>
                                 <FaLine size={20} />
-                                <span>kittipitch</span>
+                                <span>{applicant.contact.line}</span>
                             </div>
                         </div>
                     </section>
-
                 </div>
             </div>
         </div>
