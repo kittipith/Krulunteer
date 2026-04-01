@@ -1,7 +1,6 @@
 import '../index.css'
 import ThailandMap from '../components/thailandMap.jsx'
 import { useNavigate } from 'react-router-dom';
-
 import { GrLinkNext } from "react-icons/gr";
 
 function Home(){

@@ -388,6 +388,7 @@ function Profile() {
                                 ยกเลิก
                             </button>
                             <button
+                                onClick={() => setIsOpen(false)}
                                 className="px-5 py-2 rounded-xl bg-green-600 text-white hover:bg-green-700 font-noto-sans-thai">
                                 บันทึกข้อมูล
                             </button>
