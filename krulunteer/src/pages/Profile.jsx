@@ -5,6 +5,7 @@ import { IoIosMail, IoIosArrowRoundBack } from "react-icons/io"
 import { FaLine } from "react-icons/fa6"
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
+import EditProfileModal from "../components/EditProfile"
 
 function Profile() {
     const { id } = useParams()
@@ -60,14 +61,36 @@ function Profile() {
         setIsOpen(true)
     }
 
-    // เปลี่ยนค่า input
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData((prev) => ({
+    const handleSave = () => {
+        setProfile(prev => ({
             ...prev,
-            [name]: value
+            name: formData.name,
+            age: formData.age,
+            teach_level: formData.teach_level,
+            contact: {
+                phone: formData.phone,
+                email: formData.email,
+                line: formData.line
+            },
+            teachableSubjects: formData.teachableSubjects.split(",").map(s => s.trim()),
+            education: formData.education.split("\n").map((line, i) => ({
+                id: i + 1,
+                degree: line,
+                school: "",
+                period: ""
+            })),
+            experience: formData.experience.split("\n").map((line, i) => ({
+                id: i + 1,
+                title: line,
+                location: "",
+                level: "",
+                period: ""
+            }))
         }))
+
+        setIsOpen(false)
     }
+
 
 
 
@@ -248,153 +271,13 @@ function Profile() {
             </div>
 
             {isOpen && (
-                <div
-                    onClick={() => setIsOpen(false)}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
-                    <div
-                        onClick={(e) => e.stopPropagation()}
-                        className="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-gray-200 p-6 relative">
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">
-                            ✕
-                        </button>
-
-                        <h2 className="text-2xl font-bold text-gray-900 font-noto-sans-thai mb-6">
-                            แก้ไขข้อมูลโปรไฟล์
-                        </h2>
-                        <div className="space-y-4">
-                            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2'>
-                                <div>    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        ชื่อ
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        อายุ
-                                    </label>
-                                    <input
-                                        type="number"
-                                        name="age"
-                                        value={formData.age}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        ตำแหน่ง
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="teach_level"
-                                        value={formData.teach_level}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        เบอร์โทรศัพท์
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        อีเมล
-                                    </label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        Line ID
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="line"
-                                        value={formData.line}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
-                                </div>
-
-                                
-                            </div>
-
-                            <div>
-                                
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                    การศึกษา
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="edcation"
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        ประสบการณ์
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="experience"
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1 font-noto-sans-thai">
-                                        วิชาที่สามารถสอนได้
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="ducation"
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"/>
-                                </div>
-                            </div>
-                            
-
-                        </div>
-
-                        <div className="flex justify-end gap-3 mt-8">
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="px-5 py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 font-noto-sans-thai">
-                                ยกเลิก
-                            </button>
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="px-5 py-2 rounded-xl bg-green-600 text-white hover:bg-green-700 font-noto-sans-thai">
-                                บันทึกข้อมูล
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <EditProfileModal
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                    formData={formData}
+                    setFormData={setFormData}
+                    onSave={handleSave}
+                />
             )}
         </>
     )

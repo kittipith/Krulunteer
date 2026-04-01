@@ -1,16 +1,10 @@
-import { MapContainer, TileLayer, GeoJSON, Tooltip, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import thailand from "../data/thailandData.json";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import schools from "../data/School.json";
 
-function MapFixer() {
-    const map = useMap();
-    useEffect(() => {
-        setTimeout(() => { map.invalidateSize(); }, 500);
-    }, [map]);
-    return null;
-}
+
 export default function ThailandMap() {
     const [isReady, setIsReady] = React.useState(false);
 
@@ -20,13 +14,10 @@ export default function ThailandMap() {
 
     const schoolData = schools.reduce((acc, school) => {
         const province = school.Province?.trim();
-
         if (!province) return acc;
-
         acc[province] = (acc[province] || 0) + 1;
         return acc;
     }, {});
-
 
     const getColor = (count) => {
         if (count > 4) return "#166534";
@@ -38,7 +29,6 @@ export default function ThailandMap() {
     const getProvinceColor = (feature) => {
         const name = feature.properties.NAME_1 || feature.properties.name; 
         const count = schoolData[name] || 0;
-
         return {
             fillColor: getColor(count),
             weight: 1,
@@ -68,6 +58,7 @@ export default function ThailandMap() {
         
         });
     };
+    
     if (!isReady || !thailand) return null;
 
     return (
