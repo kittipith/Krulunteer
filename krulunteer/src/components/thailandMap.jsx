@@ -5,17 +5,18 @@ import React from "react";
 import schools from "../data/School.json";
 
 
+
 export default function ThailandMap() {
     const [isReady, setIsReady] = React.useState(false);
-
+    
     React.useEffect(() => {
         setIsReady(true);
     }, []);
 
     const schoolData = schools.reduce((acc, school) => {
-        const province = school.Province?.trim();
-        if (!province) return acc;
-        acc[province] = (acc[province] || 0) + 1;
+        const provinces = school.Provinces?.trim();
+        if (!provinces) return acc;
+        acc[provinces] = (acc[provinces] || 0) + 1;
         return acc;
     }, {});
 
@@ -57,6 +58,8 @@ export default function ThailandMap() {
             }
         
         });
+        console.log("GeoJSON จังหวัด:", thailand.features.map(f => f.properties.NAME_1 || f.properties.name));
+        console.log("School จังหวัด:", Object.keys(schoolData));console.log("School จังหวัด:", Object.keys(schoolData));
     };
     
     if (!isReady || !thailand) return null;
