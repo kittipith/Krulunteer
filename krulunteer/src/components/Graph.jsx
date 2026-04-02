@@ -1,4 +1,3 @@
-import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
 function Graph({ Data }) {
@@ -21,7 +20,7 @@ function Graph({ Data }) {
                         <PolarGrid />
                         <PolarAngleAxis dataKey="environment" tick={{ fill: '#6b7280', fontSize: 14 }}/>
                         <PolarRadiusAxis angle={90} domain={[1, 5]} tickCount={5} tick={{ fill: '#9ca3af', fontSize: 12 }}/>
-                        <Radar name="ระดับ" dataKey="value" stroke="#368C64" fill="#D5FFD4" fillOpacity={0.15}/>
+                        <Radar name="ระดับ" dataKey="value" stroke="#368C64" fill="#D5FFD4" fillOpacity={0.2}/>
                         <Tooltip />
                     </RadarChart>
                 </ResponsiveContainer>

@@ -3,7 +3,7 @@ import ThailandMap from '../components/thailandMap.jsx'
 import { useNavigate } from 'react-router-dom';
 import { GrLinkNext } from "react-icons/gr";
 
-function Home(){
+function Home({ teacher }){
     const navigate = useNavigate();
 
     const handleFindSchool = () => {
@@ -32,16 +32,18 @@ function Home(){
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <button className="flex items-center justify-center px-6 py-3 bg-[#2F855A]  text-white text-[1.2rem] rounded-lg shadow cursor-pointer hover:bg-[#276749] font-playfair"
-                            onClick={handleFindSchool}>
-                            Find a School
-                            <GrLinkNext size={20} className="inline-block ml-2" />
-                        </button>
+                            <button className="flex items-center justify-center px-6 py-3 bg-[#2F855A]  text-white text-[1.2rem] rounded-lg shadow cursor-pointer hover:bg-[#276749] font-playfair"
+                                onClick={handleFindSchool}>
+                                Find a School
+                                <GrLinkNext size={20} className="inline-block ml-2" />
+                            </button>
 
-                        <button className="flex items-center justify-center px-6 py-3 border border-[#2F855A] text-[#2F855A] text-[1.2rem] rounded-lg cursor-pointer hover:bg-green-100 font-playfair"
-                            onClick={handlePostNeed}>
-                            Post a Need
-                        </button>
+                            {!teacher && (
+                                <button className="flex items-center justify-center px-6 py-3 border border-[#2F855A] text-[#2F855A] text-[1.2rem] rounded-lg cursor-pointer hover:bg-green-100 font-playfair"
+                                    onClick={handlePostNeed}>
+                                    Post a Need
+                                </button>
+                            )}
                         </div>
                     </div>
 

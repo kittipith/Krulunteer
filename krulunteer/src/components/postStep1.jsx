@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { TiImage } from "react-icons/ti";
+import { LuSchool } from "react-icons/lu";
+import { PiCity } from "react-icons/pi";
+import { IoLocationOutline } from "react-icons/io5";
 
 export default function Step1({ formData, setFormData }) {
     const [image, setImage] = useState(null);
@@ -30,30 +33,39 @@ export default function Step1({ formData, setFormData }) {
         <div className="space-y-5 p-1">
             <div className="flex flex-col gap-1.5 font-noto-sans-thai">
                 <label>ชื่อโรงเรียน</label>
-            <input id="schoolName" className="w-full px-4 py-2.5 border border-gray-300 rounded-xl shadow-sm transition duration-150 ease-in-out focus:ring-2 focus:ring-blue-100 focus:border-blue-400 placeholder:text-gray-400"  placeholder="ชื่อโรงเรียน" value={formData.schoolName} onChange={handleChange}/>
+                <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 transition duration-150 ease-in-out focus-within:border-emerald-600">
+                    <LuSchool size={20} className="absolute left-4 text-gray-600" />
+                    <input id="schoolName" type="text" placeholder="ชื่อโรงเรียน" className="w-full pl-10 outline-none text-gray-700 text-[1rem]"
+                    value={formData.schoolName} onChange={handleChange} />
+                </div>
             </div>
-
             
             <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5 font-noto-sans-thai">
                     <label>จังหวัด</label>
-                    <input id="province" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400" 
-                    placeholder="จังหวัด" value={formData.province} onChange={handleChange}/>
+                    <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 transition duration-150 ease-in-out focus-within:border-emerald-600">
+                        <PiCity size={20} className="absolute left-4 text-gray-600" />
+                        <input id="province" type="text" placeholder="จังหวัด" className="w-full pl-10 outline-none text-gray-700 text-[1rem]"
+                        value={formData.province} onChange={handleChange} />
+                    </div>
                 </div>
                 <div className="flex flex-col gap-1.5 font-noto-sans-thai">
                     <label>อำเภอ</label>
-                    <input id="district" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400" 
-                    placeholder="อำเภอ" value={formData.district} onChange={handleChange}/>
-                </div>      
+                    <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 transition duration-150 ease-in-out focus-within:border-emerald-600">
+                        <PiCity size={20} className="absolute left-4 text-gray-600" />
+                        <input id="district" type="text" placeholder="อำเภอ" className="w-full pl-10 outline-none text-gray-700 text-[1rem]"
+                        value={formData.district} onChange={handleChange} />
+                    </div>
+                </div>
             </div>
             <div className="flex flex-col gap-1.5 font-noto-sans-thai"> 
                 <label>Location</label>
-                <input id="location" className="w-full border border-gray-300 p-2.5 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400"
-                placeholder="วางลิงก์พิกัดโรงเรียน" value={formData.location} onChange={handleChange}/>
+                <div className="relative flex items-center w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 transition duration-150 ease-in-out focus-within:border-emerald-600">
+                    <IoLocationOutline size={20} className="absolute left-4 text-gray-600" />
+                    <input id="location" type="text" placeholder="วางลิงก์พิกัดโรงเรียน" className="w-full pl-10 outline-none text-gray-700 text-[1rem]"
+                    value={formData.location} onChange={handleChange} />
+                </div>
             </div>
-
-            
-            
             
             <label className="font-noto-sans-thai">รูปภาพโรงเรียน</label>
             <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -80,7 +92,6 @@ export default function Step1({ formData, setFormData }) {
                     </button>
                 </div>
             )}
-        
         </div>
     );
 }

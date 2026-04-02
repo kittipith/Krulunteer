@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import { FiWind } from "react-icons/fi";
@@ -30,7 +30,7 @@ export default function LocationInfo({ Lat, Lon }) {
     };
     useEffect(() => {
         const fetchAllData = async () => {
-            try {
+            try{
                 // ดึงข้อมูลสภาพอากาศ
                 const weatherPromise = fetch(
                     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=th`
@@ -56,8 +56,8 @@ export default function LocationInfo({ Lat, Lon }) {
                         ? Math.round(hospitalRes.features[0].properties.distance / 1000)
                         : "-"
                 });
-            } catch (error) {
-                console.error("Error fetching data:", error);
+            }catch (error){
+                console.error("Error", error);
             }
         };
         fetchAllData();
