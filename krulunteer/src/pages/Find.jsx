@@ -17,10 +17,10 @@ function Find(){
     const [filteredDistricts, setFilteredDistricts] = useState([]);
     const [selectedProvinceId, setSelectedProvinceId] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
-
-    const [searchTerm, setSearchTerm] = useState("");
     const [selectedSubjects, setSelectedSubjects] = useState([]);
     const [selectedUrgency, setSelectedUrgency] = useState("");
+
+    const [search, setSearch] = useState("");
     
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/kongvut/thai-province-data/refs/heads/master/api/latest/province.json')
@@ -32,19 +32,18 @@ function Find(){
     }, []);
 
     useEffect(() => {
-        if (selectedProvinceId) {
-
+        if (selectedProvinceId){
             const result = districts.filter(d => d.province_id === parseInt(selectedProvinceId));
             setFilteredDistricts(result.sort((a, b) => a.name_th.localeCompare(b.name_th)));
-        } else {
+        }else{
             setFilteredDistricts([]);
         }
         setSelectedDistrict("");
     }, [selectedProvinceId, districts]);
 
     const filteredSchools = schools.filter((school) => {
-        const matchesSearch = school.Name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                              school.Province.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = school.Name.toLowerCase().includes(search.toLowerCase()) || 
+                              school.Province.toLowerCase().includes(search.toLowerCase());
         const matchesProvince = selectedProvinceId 
             ? provinces.find(p => p.id === parseInt(selectedProvinceId))?.name_th === school.Province || school.Province.includes(selectedProvinceId)
             : true;
@@ -72,7 +71,7 @@ function Find(){
                 <div className='grid grid-cols-1 sm:grid-cols-[70%_30%] md:grid-cols-[80%_20%] lg:grid-cols-[82%_1%_15%] my-5 w-full gap-5'>
                     <div className="flex items-center w-full bg-white border border-gray-300 rounded-full px-4 py-2 focus-within:border-green-800">
                         <IoIosSearch className="text-gray-400 mr-3" size={20} />
-                        <input type="text" placeholder="Search by School name or province" className="flex-1 outline-none text-gray-700 text-[1.2rem]" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                        <input type="text" placeholder="Search by School name or province" className="flex-1 outline-none text-gray-700 text-[1.2rem]" value={search} onChange={(e) => setSearch(e.target.value)} />
                     </div>
                     <div className='hidden lg:flex'></div>
                     <div onClick={() => setFilter(!filter)} className={`flex items-center justify-center w-full border border-gray-300 rounded-full px-4 py-2 transition ease-in-out duration-200 cursor-pointer hover:bg-[#E0FFF1] ${filter ? 'bg-[#368C64] text-white hover:text-black' : 'bg-white text-black'}`}>

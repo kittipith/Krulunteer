@@ -2,6 +2,7 @@ import ApplicantPopup from './ApplicantPopup'
 import { useState } from 'react'
 import ProfilesData from '../data/ProfileData.json'
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom'
 
 import { IoEyeOutline } from "react-icons/io5";
 import { CiCircleCheck } from "react-icons/ci";
@@ -9,15 +10,19 @@ import { CiCircleCheck } from "react-icons/ci";
 function ListApplicant() {
     const [applicants, setApplicants] = useState(ProfilesData);
     const [selectedApplicant, setSelectedApplicant] = useState(null);
+    const navigate = useNavigate();
 
     const handleAccept = (id) => {
         const updatedList = applicants.filter(profile => profile.id !== id);
         setApplicants(updatedList);
         Swal.fire({
-          title: "รับเข้าสอนเรียบร้อยแล้ว!",
-          icon: "success",
-          draggable: true
+            title: "รับเข้าสอนเรียบร้อยแล้ว!",
+            icon: "success",
+            draggable: true
         });
+        setTimeout(() => {
+            navigate('/');
+        }, 1000);
     };
 
     return (

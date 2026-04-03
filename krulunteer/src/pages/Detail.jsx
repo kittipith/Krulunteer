@@ -47,8 +47,8 @@ function Detail(){
             });
         });
         setTimeout(() => {
-            navigate('/find');
-        }, 1000);
+            navigate('/');
+        }, 2000);
     };
 
     return(
