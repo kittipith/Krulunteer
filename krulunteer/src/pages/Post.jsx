@@ -1,9 +1,9 @@
 import '../index.css'
 import { useState } from "react";
-import PostStep1 from "../components/postStep1";
-import PostStep2 from "../components/postStep2";
-import PostStep3 from "../components/postStep3";    
-import StepPointer from "../components/stepPointer";
+import PostStep1 from "../components/PostStep1";
+import PostStep2 from "../components/PostStep2";
+import PostStep3 from "../components/PostStep3";    
+import StepPointer from "../components/StepPointer";
 
 function Post(){
     const [step, setStep] = useState(1);

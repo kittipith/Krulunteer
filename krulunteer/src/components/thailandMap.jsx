@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, GeoJSON} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import thailand from "../data/thailandData.json";
+import thailand from "../data/ThailandData.json";
 import React from "react";
 import schools from "../data/School.json";
 
