@@ -25,7 +25,7 @@ function LoginStaff({ setStaff, staff }) {
                 icon: "success",
                 draggable: true
             }).then(() => {
-                navigate("/"); 
+                navigate("/");
             });
         }else{
             Swal.fire({

@@ -103,9 +103,6 @@ export default function Step3({ formData, setFormData }) {
 
     }
 
-    
-
-
     return (
         <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-noto-sans-thai">

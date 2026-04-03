@@ -4,9 +4,12 @@ import PostStep1 from "../components/PostStep1";
 import PostStep2 from "../components/PostStep2";
 import PostStep3 from "../components/PostStep3";    
 import StepPointer from "../components/StepPointer";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert2";
 
 function Post(){
     const [step, setStep] = useState(1);
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         schoolName: "",
@@ -80,7 +83,8 @@ function Post(){
                 return false;
             }
             if (!formData.water) {
-                alert("กรุณาเลือกความสะดวกในการใช้น้ำประปา");                return false;
+                alert("กรุณาเลือกความสะดวกในการใช้น้ำประปา");
+                return false;
             }
             if (formData.benefits.length === 0) {
                 alert("กรุณาเลือกสวัสดิการ");
@@ -123,7 +127,10 @@ function Post(){
 
                                 if (step === 3){
                                     console.log(formData);
-                                    alert("บันทึกข้อมูลสำเร็จ");
+                                    navigate("/");
+                                    setTimeout(() => {
+                                        swal.fire("Success!", "สร้างประกาศรับสมัครสำเร็จ!", "success");
+                                    }, 1000);
                                 } else {
                                     setStep(step + 1);
                                 }
